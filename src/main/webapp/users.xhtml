@@ -27,6 +27,12 @@
                     <h:outputText value="#{user.lastName}"/>
                 </h:column>
                 <h:column>
+                    <f:facet name="header">Date of birth</f:facet>
+                    <h:outputText value="#{user.dateOfBirth}">
+                        <f:convertDateTime pattern="d MMMM yyyy"/>
+                    </h:outputText>
+                </h:column>
+                <h:column>
                     <f:facet name="header">Tools</f:facet>
                     <h:commandLink value="Remove" action="#{userController.remove(user)}"/>
                 </h:column>

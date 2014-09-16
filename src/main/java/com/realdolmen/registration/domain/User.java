@@ -1,9 +1,7 @@
 package com.realdolmen.registration.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class User {
@@ -14,15 +12,19 @@ public class User {
     private String firstName;
     private String lastName;
 
+    @Temporal(TemporalType.DATE)
+    private Date dateOfBirth;
+
     /**
      * Used by JPA.
      */
     protected User() {
     }
 
-    public User(String lastName, String firstName) {
+    public User(String lastName, String firstName, Date dateOfBirth) {
         this.lastName = lastName;
         this.firstName = firstName;
+        this.dateOfBirth = dateOfBirth;
     }
 
     public Integer getId() {
@@ -35,5 +37,9 @@ public class User {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
     }
 }

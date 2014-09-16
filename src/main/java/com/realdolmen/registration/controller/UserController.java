@@ -8,6 +8,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Collection;
+import java.util.Date;
 
 @Named
 @RequestScoped
@@ -20,14 +21,16 @@ public class UserController {
     @PostConstruct
     public void initialize() {
         users = userRepository.findAll();
+        users.add(new User("Kevin", "Van Robbroeck", new Date()));
     }
 
     public Collection<User> getUsers() {
         return users;
     }
 
-    public void remove(User user) {
+    public String remove(User user) {
         userRepository.remove(user);
-        users.remove(user);
+//        return "users";
+        return "users?faces-redirect=true";
     }
 }
