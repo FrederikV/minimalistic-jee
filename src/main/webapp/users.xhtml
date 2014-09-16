@@ -13,7 +13,7 @@
     <h:body>
         <h1>User details</h1>
         <h:form>
-            <h:dataTable value="#{userRepository.findAll()}" var="user">
+            <h:dataTable value="#{userController.users}" var="user">
                 <h:column>
                     <f:facet name="header">Id</f:facet>
                     <h:outputText value="#{user.id}"/>
@@ -28,7 +28,7 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">Tools</f:facet>
-                    <h:commandLink value="Remove" action="#{userRepository.remove(user)}"/>
+                    <h:commandLink value="Remove" action="#{userController.remove(user)}"/>
                 </h:column>
             </h:dataTable>
         </h:form>
